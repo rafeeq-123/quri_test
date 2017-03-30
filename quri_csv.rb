@@ -4,6 +4,7 @@ require "pry"
 def yes_and_no_count
   item = 1
   [9, 21, 33, 45, 57,69, 80, 92, 104].each do |row_number|
+  #percent of bands that had at lest one display  
   #these are the rows where it was y/n if item was found in the location
   #this is verbose and not very dry or very flexable here
     count = {}
