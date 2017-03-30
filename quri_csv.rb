@@ -5,7 +5,7 @@ def yes_and_no_count
   item = 1
   [9, 21, 33, 45, 57,69, 80, 92, 104].each do |row_number|
   #these are the rows where it was y/n if item was found in the location
-  #this is verbose and not very dry
+  #this is verbose and not very dry or very flexable here
     count = {}
     CSV.foreach("superbowl.csv", :headers => true) do |row|
       count[row[row_number]] ||= 0
@@ -14,7 +14,11 @@ def yes_and_no_count
   count.each do |value, count|
     result = count / @lines.to_f * 100 
     puts "----------------------------"
-    puts "Here is the outcome #{value}: #{count}"
+    if value.nil? 
+      puts "This has a nil value"
+    else 
+      puts "Here is the outcome #{value}:#{count}"
+    end 
     puts "precent: #{result}% "
     end
     puts " At Least One Display #item #{item += 1}  " 
@@ -35,7 +39,7 @@ def location_precent
   count.each do |value, count|
     puts "*********************************"    
     puts "Place: #{value.nil? ? "Not Recorded in CSV": value}"
-    puts "#{value}: #{count / @lines.to_f * 100}%"   
+    puts "#{value}: #{count / @lines.to_f * 100}%"
     end 
     puts " ( Item number #{item += 1} ↓↓↓↓↓) "
   end
