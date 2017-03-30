@@ -14,11 +14,7 @@ def yes_and_no_count
   count.each do |value, count|
     result = count / @lines.to_f * 100 
     puts "----------------------------"
-    if value.nil? 
-      puts "This has a nil value"
-    else 
-      puts "Here is the outcome #{value}:#{count}"
-    end 
+    puts "#{value.nil? ? "This has a nil value could be an error when uploaded": value}" 
     puts "precent: #{result}% "
     end
     puts " At Least One Display #item #{item += 1}  " 
